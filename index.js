@@ -13,8 +13,8 @@ app.use(express.json());
 app.get("/", (req, res) => {      
   console.log("Rota GET/ solicitada");
   res.json({
-    nome1: "Henio Richard",
-    nome2: "Renan Nunes",     
+    nome1: "Henio Richard Rodrigues do santos",
+    nome2: "Renan Nunes Teixeira",     
   });
 });
 
