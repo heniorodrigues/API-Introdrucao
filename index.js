@@ -1,19 +1,20 @@
-import dotenv from "dotenv";
+
 import express from "express";
-import { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario} from "./bd.js";
+import dotenv from "dotenv"; 
+import { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario } from "./bd.js";   
 
 dotenv.config();
 
-const app = express();
+const app = express();          
 const port = 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  console.log("Rota / solicitada");
-  // Cria a rota da raiz do projeto
+app.get("/", (req, res) => {      
+  console.log("Rota GET/ solicitada");
   res.json({
-    nome: "Luíza Nere",
+    nome1: "Henio Richard",
+    nome2: "Renan Nunes",     
   });
 });
 
@@ -24,7 +25,6 @@ app.get("/usuarios", async (req, res) => {
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
-
   console.log("Rota GET/usuarios solicitada");
 });
 
@@ -77,7 +77,6 @@ app.put("/usuario/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  // Um socket para "escutar" as requisições
+app.listen(port, () => {       
   console.log(`Serviço escutando na porta:  ${port}`);
 });
